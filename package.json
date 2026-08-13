@@ -1,0 +1,14 @@
+{
+  "name": "asr-consensus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "複数の音声認識エンジンの結果を突き合わせ、食い違いを判定する日本語文字起こしCLI",
+  "scripts": {
+    "transcribe": "node src/transcribe.js",
+    "consensus": "node src/consensus.js",
+    "render": "node src/render.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
