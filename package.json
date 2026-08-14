@@ -1,0 +1,63 @@
+{
+  "name": "asr-consensus",
+  "version": "1.0.0",
+  "description": "Provider-independent CLI and browser viewer for reviewing disagreements between ASR transcripts",
+  "license": "MIT",
+  "author": "asr-consensus contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiyohara1021/asr-consensus.git"
+  },
+  "homepage": "https://github.com/kiyohara1021/asr-consensus#readme",
+  "bugs": {
+    "url": "https://github.com/kiyohara1021/asr-consensus/issues"
+  },
+  "keywords": [
+    "asr",
+    "speech-to-text",
+    "transcription",
+    "japanese",
+    "quality-assurance",
+    "human-in-the-loop"
+  ],
+  "main": "src/core.js",
+  "exports": {
+    ".": "./src/core.js",
+    "./normalize": "./src/normalize.js"
+  },
+  "bin": {
+    "asr-consensus": "src/consensus.js",
+    "asr-render": "src/render.js"
+  },
+  "files": [
+    "src/",
+    "schema/",
+    "fixtures/",
+    "demo/",
+    "scripts/serve-demo.js",
+    "README.md",
+    "README.ja.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "CODE_OF_CONDUCT.md",
+    ".env.example",
+    "LICENSE"
+  ],
+  "scripts": {
+    "transcribe": "node src/transcribe.js",
+    "consensus": "node src/consensus.js",
+    "render": "node src/render.js",
+    "demo": "node scripts/serve-demo.js",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "check": "node --check src/*.js && node --check demo/*.js && node --check scripts/*.js && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

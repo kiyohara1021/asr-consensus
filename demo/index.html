@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="複数ASRの不一致区間をブラウザだけで確認するasr-consensusデモ">
+    <title>asr-consensus demo</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <p class="eyebrow">HUMAN-IN-THE-LOOP ASR REVIEW</p>
+        <h1>違うところだけ、<br>人が確かめる。</h1>
+        <p class="lead">複数の音声認識結果を時刻で揃え、不一致区間を絞り込みます。このデモは架空テキストだけで動作し、データを外部へ送信しません。</p>
+      </header>
+
+      <section class="controls" aria-labelledby="controls-title">
+        <div>
+          <h2 id="controls-title">入力</h2>
+          <p>標準スキーマのJSONを選ぶか、同梱fixtureをそのまま試せます。</p>
+        </div>
+        <label>基準JSON<input id="primary-file" type="file" accept="application/json,.json"></label>
+        <label>比較JSON（複数可）<input id="other-files" type="file" accept="application/json,.json" multiple></label>
+        <label class="threshold">判定しきい値 <output id="threshold-output">0.65</output>
+          <input id="threshold" type="range" min="0" max="1" step="0.05" value="0.65">
+        </label>
+        <button id="load-fixtures" type="button">匿名サンプルに戻す</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section aria-labelledby="result-title">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">REVIEW QUEUE</p>
+            <h2 id="result-title">確認結果</h2>
+          </div>
+          <p id="summary" class="summary"></p>
+        </div>
+        <div id="rows" class="rows"></div>
+      </section>
+    </main>
+    <footer>asr-consensus · API key not required · Local processing</footer>
+    <script src="./src/core.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

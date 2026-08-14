@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kiyohara1021/asr-consensus/blob/main/schema/asr-result.schema.json",
+  "title": "ASR Consensus Result",
+  "description": "Provider-independent input for comparing speech recognition output.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schemaVersion", "source", "duration", "text", "segments"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "source": { "type": "string", "minLength": 1 },
+    "duration": { "type": ["number", "null"], "minimum": 0 },
+    "text": { "type": "string" },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["start", "end", "speaker", "text"],
+        "properties": {
+          "start": { "type": ["number", "null"], "minimum": 0 },
+          "end": { "type": ["number", "null"], "minimum": 0 },
+          "speaker": { "type": ["string", "null"] },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional provider-specific information. Comparison never depends on this field."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage questions
+    url: https://github.com/kiyohara1021/asr-consensus/discussions
+    about: Ask questions without opening a bug report
+  - name: Security policy
+    url: https://github.com/kiyohara1021/asr-consensus/security/policy
+    about: Report vulnerabilities privately
+

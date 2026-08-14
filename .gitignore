@@ -1,0 +1,32 @@
+# 認証情報
+.env
+
+# 認識結果・レポート。第三者の音声内容を含むため、決してコミットしない。
+*.json
+!package.json
+!fixtures/*.json
+!schema/*.json
+report*.md
+transcript*.txt
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.aac
+*.ogg
+*.opus
+*.aif
+*.aiff
+*.caf
+*.wma
+*.mp4
+*.m4v
+*.mov
+*.webm
+
+# ビルド成果物
+bin/
+coverage/
+dist/
+
+.DS_Store

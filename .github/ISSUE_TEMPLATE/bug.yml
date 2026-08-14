@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible problem using synthetic data
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: checkboxes
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed real audio, transcripts, credentials, and personal data.
+          required: true
+  - type: textarea
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Minimal synthetic input and reproduction steps
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Node.js version
+    validations:
+      required: true
+

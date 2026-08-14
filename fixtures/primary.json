@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "source": "engine-a",
+  "duration": 14.2,
+  "text": "今日は公開データを使った比較方法を説明します。結果が異なる場所だけを確認します。最後の判断は人が行います。",
+  "segments": [
+    {
+      "start": 0,
+      "end": 5.1,
+      "speaker": "speaker_0",
+      "text": "今日は公開データを使った比較方法を説明します。"
+    },
+    {
+      "start": 5.1,
+      "end": 9.8,
+      "speaker": "speaker_0",
+      "text": "結果が異なる場所だけを確認します。"
+    },
+    {
+      "start": 9.8,
+      "end": 14.2,
+      "speaker": "speaker_0",
+      "text": "最後の判断は人が行います。"
+    }
+  ],
+  "metadata": {
+    "fixture": true,
+    "notice": "Synthetic text; not produced from a real recording."
+  }
+}

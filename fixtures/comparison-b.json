@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "source": "engine-c",
+  "duration": 14.2,
+  "text": "今日は公開データを使った比較方法を説明します。結果がことなる場所だけ確認します。最後の判定はAIが行います。",
+  "segments": [
+    {
+      "start": 0,
+      "end": 5,
+      "speaker": "unknown",
+      "text": "今日は公開データを使った比較方法を説明します。"
+    },
+    {
+      "start": 5,
+      "end": 9.9,
+      "speaker": "unknown",
+      "text": "結果がことなる場所だけ確認します。"
+    },
+    {
+      "start": 9.9,
+      "end": 14.2,
+      "speaker": "unknown",
+      "text": "最後の判定はAIが行います。"
+    }
+  ],
+  "metadata": {
+    "fixture": true,
+    "notice": "Synthetic text; not produced from a real recording."
+  }
+}
