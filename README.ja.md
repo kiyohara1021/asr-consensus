@@ -1,11 +1,20 @@
 # asr-consensus
 
 [![CI](https://github.com/kiyohara1021/asr-consensus/actions/workflows/ci.yml/badge.svg)](https://github.com/kiyohara1021/asr-consensus/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/asr-consensus)](https://www.npmjs.com/package/asr-consensus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 複数の音声認識結果から、**食い違った区間だけを人が確認する**ためのCLI・ブラウザビューアです。
 
 [English README](README.md)
+
+## インストール
+
+```bash
+npm install --global asr-consensus
+```
+
+比較ライブラリは`require("asr-consensus")`からも利用できます。
 
 `asr-consensus`は、時刻付きASR結果を同じタイムラインへ揃え、文字bigramの一致度から確認対象を絞ります。LLMに正解を決めさせません。形態素解析器を必要としないため、日本語を含むCJKテキストをそのまま比較できます。
 

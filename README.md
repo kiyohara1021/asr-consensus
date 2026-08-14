@@ -1,6 +1,7 @@
 # asr-consensus
 
 [![CI](https://github.com/kiyohara1021/asr-consensus/actions/workflows/ci.yml/badge.svg)](https://github.com/kiyohara1021/asr-consensus/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/asr-consensus)](https://www.npmjs.com/package/asr-consensus)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Review only the parts where speech-to-text engines disagree.
@@ -8,6 +9,14 @@ Review only the parts where speech-to-text engines disagree.
 `asr-consensus` aligns timestamped ASR results, calculates a language-independent character-bigram similarity score, and creates a small human review queue. It does **not** ask an LLM to choose a winner. Japanese and other CJK text work without a tokenizer.
 
 [日本語README](README.ja.md)
+
+## Install
+
+```bash
+npm install --global asr-consensus
+```
+
+The comparison library is also available through `require("asr-consensus")`.
 
 ## Why
 
