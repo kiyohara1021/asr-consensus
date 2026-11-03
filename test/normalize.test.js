@@ -66,3 +66,23 @@ test("splits coarse on-device segments and marks estimated timings", () => {
 test("rejects invalid canonical input instead of guessing a provider", () => {
   assert.throws(() => normalize({ schemaVersion: "1.0", source: "x", segments: [{ text: "x" }] }), /invalid/);
 });
+
+test("reports non-array canonical segments as a validation error", () => {
+  for (const segments of [{ start: 0 }, "segments", 3]) {
+    assert.throws(
+      () => normalize({ schemaVersion: "1.0", source: "x", text: "", duration: null, segments }),
+      (error) => error instanceof TypeError && /segments must be an array/.test(error.message),
+    );
+  }
+  assert.throws(
+    () => normalize({ schemaVersion: "1.0", source: "x", text: "", duration: null, segments: [null] }),
+    /segments\[0\] must be an object/,
+  );
+});
+
+test("uses Whisper's reported duration when present", () => {
+  const segments = [{ id: 0, seek: 0, start: 0, end: 4.2, text: " こんにちは" }];
+  assert.equal(normalize({ task: "transcribe", duration: 9.5, segments, text: "こんにちは" }).duration, 9.5);
+  assert.equal(normalize({ task: "transcribe", segments, text: "こんにちは" }).duration, 4.2);
+  assert.equal(normalize({ task: "transcribe", duration: "9.5", segments, text: "こんにちは" }).duration, 4.2);
+});

@@ -77,10 +77,12 @@ function fromWhisper(raw, source) {
     speaker: null,
     text: String(s.text || "").trim(),
   }));
+  // Prefer the reported length: trailing silence after the last segment is part of the audio.
+  const lastEnd = segments.length > 0 ? segments[segments.length - 1].end : null;
   return {
     schemaVersion: SCHEMA_VERSION,
     source,
-    duration: segments.length > 0 ? segments[segments.length - 1].end : null,
+    duration: Number.isFinite(raw.duration) && raw.duration >= 0 ? raw.duration : lastEnd,
     text: String(raw.text || segments.map((s) => s.text).join("")).trim(),
     segments: segments.filter((s) => s.text.length > 0),
     metadata: { format: "whisper" },
@@ -144,10 +146,15 @@ function fromCanonical(raw, source) {
     ...raw,
     source: raw.source || source,
     text: typeof raw.text === "string" ? raw.text.trim() : raw.text,
-    segments: (raw.segments || []).map((segment) => ({
-      ...segment,
-      text: typeof segment.text === "string" ? segment.text.trim() : segment.text,
-    })),
+    // Leave a non-array as it is so assertResult reports "segments must be an array"
+    // instead of a TypeError from `.map`.
+    segments: Array.isArray(raw.segments)
+      ? raw.segments.map((segment) =>
+          segment && typeof segment === "object" && typeof segment.text === "string"
+            ? { ...segment, text: segment.text.trim() }
+            : segment,
+        )
+      : raw.segments,
   };
   assertResult(result);
   return result;

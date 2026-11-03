@@ -28,3 +28,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 - Node.js 20 support. Node.js 20 reached end of life on 2026-04-30; Node.js 22 or later is now required.
 
+### Fixed
+
+- Canonical input whose `segments` is not an array now fails with the schema validation message instead of a `TypeError` from `.map`.
+- Whisper results use the reported `duration` when present, so trailing silence after the last segment is kept.
