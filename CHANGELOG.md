@@ -23,3 +23,8 @@ All notable changes to this project are documented here. The format follows [Kee
 
 - Expanded ignore rules for common audio and video formats.
 - Added schema validation for local JSON input.
+
+### Fixed
+
+- Canonical input whose `segments` is not an array now fails with the schema validation message instead of a `TypeError` from `.map`.
+- Whisper results use the reported `duration` when present, so trailing silence after the last segment is kept.
