@@ -122,7 +122,7 @@ Before sending audio to a cloud provider, obtain the speakers' consent and revie
 
 ## Development
 
-Requires Node.js 20 or later.
+Requires Node.js 22 or later.
 
 ```bash
 npm test
