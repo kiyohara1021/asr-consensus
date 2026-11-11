@@ -55,7 +55,7 @@
     "check": "node --check src/*.js && node --check demo/*.js && node --check scripts/*.js && npm test"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"

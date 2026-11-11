@@ -120,7 +120,7 @@ asr-consensus --primary result.json [--other result.json]... --output report.md
 
 ## 開発
 
-Node.js 20以降が必要です。
+Node.js 22以降が必要です。
 
 ```bash
 npm test
